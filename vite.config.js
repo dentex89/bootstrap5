@@ -1,18 +1,23 @@
+import { defineConfig } from "vite";
 import { resolve } from "path";
 
-export default {
-  base: "/bootstrap5/",
+export default defineConfig({
+  base: "/",
+
   root: resolve(__dirname, "src"),
+
+  publicDir: resolve(__dirname, "public"),
 
   build: {
     outDir: "../dist",
+    emptyOutDir: true,
   },
 
   server: {
     port: 8080,
   },
 
-  // Optional: Silence Sass deprecation warnings
+  // Temporarily silence Bootstrap Sass deprecation warnings
   css: {
     preprocessorOptions: {
       scss: {
@@ -25,4 +30,4 @@ export default {
       },
     },
   },
-};
+});
